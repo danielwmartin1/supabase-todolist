@@ -29,7 +29,7 @@ body {
   background: #3c566c;
   color: #ffffff;
   display: flex;
-  place-items: center;
+  flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -54,52 +54,56 @@ li {
   gap: 10px;
   border-bottom: 1px solid #e0e0e0;
   margin: 0;
-  width: 100%; /* Ensure each list item takes full width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  width: 100%;
+  box-sizing: border-box;
   text-align: left !important;
 }
 
 li > * {
-  flex: 1; /* Make each child take equal space */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Ensure each child takes full width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 ul {
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  align-items: stretch;
-  justify-items: stretch;
+  justify-content: space-between;
 }
 
 .header {
+  width: 100%;
   background: #0051ff;
   color: #ffffff;
   padding: 15px 20px;
-  text-align: center;
+  text-align: center !important;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+  position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-bottom: 5px ridge aqua;
+}
+
+.header > h1 {
+  margin: 0;
+  font-size: 2.5em;
+  text-align: center !important;
 }
 
 #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
   width: 100%;
+  min-height: 100vh;
 }
 
 .logo {
@@ -143,30 +147,13 @@ ul {
   color: #888;
 }
 
-.header, .footer {
+footer {
   width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  text-align: center;
   background-color: #0051ff90;
   color: #ffffff;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
   text-align: center;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   border-top: 5px ridge aqua;
-}
-
-.footer.p {
-  margin: 0;
 }
 
 .add-todo {
@@ -202,8 +189,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s, padding 0.25s, font-size 0.25s;
-  width: auto; /* Ensure button width fits its content */
-  white-space: nowrap; /* Prevent text from wrapping */
+  width: auto;
+  white-space: nowrap;
 }
 button:hover {
   border-color: #646cff;
@@ -236,7 +223,6 @@ button:focus-visible {
   .container > * {
     padding: 10px;
   }
-
 
   .logo {
     height: 4em;
@@ -353,36 +339,4 @@ button:focus-visible {
   input[type="text"] {
     font-size: 1em;
   }
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 0;
-  justify-content: space-between;
-}
-
-li {
-  list-style: none;
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  gap: 10px;
-  border-bottom: 1px solid #e0e0e0;
-  margin: 0;
-  width: 100%; /* Ensure each list item takes full width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  text-align: left !important;
-}
-
-li > * {
-  flex: 1; /* Make each child take equal space */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; /* Ensure each child takes full width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
