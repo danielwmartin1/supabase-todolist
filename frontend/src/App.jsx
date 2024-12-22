@@ -8,8 +8,6 @@ function App() {
   const [editingText, setEditingText] = useState('');
 
   useEffect(() => {
-    // Log the Supabase client instance to check if it is initialized
-    console.log('Supabase client:', supabase);
 
     fetchTodos();
 
@@ -30,9 +28,11 @@ function App() {
     const { data, error } = await supabase
       .from('todos')
       .select('*')
-      .order('created_at', { ascending: false });
+      .order('is_completed', { ascending: true })
+      .order('updated_at', { ascending: false });
     if (!error) setTodos(data);
   };
+  
 
   const addTodo = async () => {
     if (newTodo.trim() === '') return;
@@ -54,6 +54,7 @@ function App() {
       .from('todos')
       .update({
         is_completed: !isCompleted,
+        completed_at: !isCompleted ? new Date().toISOString() : null,
         updated_at: new Date().toISOString()
       })
       .eq('id', id);
@@ -102,7 +103,7 @@ function App() {
           onChange={(e) => setNewTodo(e.target.value)}
           placeholder="Add a new task"
         />
-        <button onClick={addTodo}>Add</button>
+        <button id="add" onClick={addTodo}>Add</button>
       </div>
       <ul>
         {todos.map(todo => (
@@ -114,8 +115,8 @@ function App() {
                   value={editingText}
                   onChange={(e) => setEditingText(e.target.value)}
                 />
-                <button onClick={() => saveEdit(todo.id)}>Save</button>
-                <button onClick={cancelEditing}>Cancel</button>
+                <button id="save" onClick={() => saveEdit(todo.id)}>Save</button>
+                <button id="cancel" onClick={cancelEditing}>Cancel</button>
               </>
             ) : (
               <>
@@ -134,8 +135,8 @@ function App() {
                 <div>
                   <small>Updated at: {new Date(todo.updated_at).toLocaleDateString()} @ {new Date(todo.updated_at).toLocaleTimeString()}</small>
                 </div>
-                <button onClick={() => startEditing(todo)}>Edit</button>
-                <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+                <button id="edit" onClick={() => startEditing(todo)}>Edit</button>
+                <button id="delete" onClick={() => deleteTodo(todo.id)}>Delete</button>
               </>
             )}
           </li>

@@ -214,6 +214,50 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 5px;
+  }
+
+  .container > * {
+    padding: 5px;
+  }
+
+  .logo {
+    height: 3em;
+    padding: 0.5em;
+  }
+
+  ul {
+    gap: 5px;
+  }
+
+  button {
+    padding: 0.4em 0.8em;
+    font-size: 0.8em;
+  }
+
+  body {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .add-todo {
+    font-size: 0.8em;
+  }
+
+  .header, .footer {
+    font-size: 0.8em;
+  }
+
+  input[type="text"] {
+    font-size: 0.8em;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 10px;
@@ -244,10 +288,6 @@ button:focus-visible {
 
   h1 {
     font-size: 2.5em;
-  }
-
-  button {
-    font-size: 0.9em;
   }
 
   .add-todo {
@@ -285,10 +325,6 @@ button:focus-visible {
     font-size: 3em;
   }
 
-  button {
-    font-size: 0.95em;
-  }
-
   .add-todo {
     font-size: 0.95em;
   }
@@ -324,10 +360,6 @@ button:focus-visible {
     font-size: 3.2em;
   }
 
-  button {
-    font-size: 1em;
-  }
-
   .add-todo {
     font-size: 1em;
   }
@@ -339,4 +371,66 @@ button:focus-visible {
   input[type="text"] {
     font-size: 1em;
   }
+}
+
+#add, #save, #delete, #cancel {
+  color: white;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#add {
+  background-color: #4CAF50; /* Green */
+}
+#add:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+#add:active {
+  background-color: #3e8e41;
+  transform: scale(1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#save {
+  background-color: #2196F3; /* Blue */
+}
+#save:hover {
+  background-color: #1e88e5;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+#save:active {
+  background-color: #1976d2;
+  transform: scale(1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#delete {
+  background-color: #f44336; /* Red */
+}
+#delete:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+#delete:active {
+  background-color: #d32f2f;
+  transform: scale(1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#cancel {
+  background-color: #ff9800; /* Orange */
+}
+#cancel:hover {
+  background-color: #fb8c00;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+#cancel:active {
+  background-color: #f57c00;
+  transform: scale(1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
