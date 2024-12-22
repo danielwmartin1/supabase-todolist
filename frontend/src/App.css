@@ -13,10 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-div.App {
-  margin-top: 2rem;
-}
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -164,7 +160,6 @@ footer {
   width: 100vw;
   background: #007bff;
   color: #fff;
-  padding: 15px 20px;
   text-align: center;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   border-top: 5px ridge aqua;
@@ -242,10 +237,6 @@ button:focus-visible {
     padding: 10px;
   }
 
-  .header, .footer {
-    flex-direction: column;
-    padding: 10px;
-  }
 
   .logo {
     height: 4em;
@@ -258,6 +249,30 @@ button:focus-visible {
 
   button {
     padding: 0.5em 1em;
+    font-size: 0.9em;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  button {
+    font-size: 0.9em;
+  }
+
+  .add-todo {
+    font-size: 0.9em;
+  }
+
+  .header, .footer {
+    font-size: 0.9em;
+  }
+
+  input[type="text"] {
     font-size: 0.9em;
   }
 }
@@ -275,6 +290,30 @@ button:focus-visible {
     padding: 0.55em 1.1em;
     font-size: 0.95em;
   }
+
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  button {
+    font-size: 0.95em;
+  }
+
+  .add-todo {
+    font-size: 0.95em;
+  }
+
+  .header, .footer {
+    font-size: 0.95em;
+  }
+
+  input[type="text"] {
+    font-size: 0.95em;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -288,6 +327,30 @@ button:focus-visible {
 
   button {
     padding: 0.6em 1.2em;
+    font-size: 1em;
+  }
+
+  body {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 3.2em;
+  }
+
+  button {
+    font-size: 1em;
+  }
+
+  .add-todo {
+    font-size: 1em;
+  }
+
+  .header, .footer {
+    font-size: 1em;
+  }
+
+  input[type="text"] {
     font-size: 1em;
   }
 }
