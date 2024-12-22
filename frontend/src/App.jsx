@@ -80,13 +80,15 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="text"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
-        placeholder="Add a new task"
-      />
-      <button onClick={addTodo}>Add</button>
+      <div className="add-header">
+        <input
+          type="text"
+          value={newTodo}
+          onChange={(e) => setNewTodo(e.target.value)}
+          placeholder="Add a new task"
+        />
+        <button onClick={addTodo}>Add</button>
+      </div>
       <ul>
         {todos.map(todo => (
           <li key={todo.id}>
