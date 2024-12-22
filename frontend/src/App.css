@@ -78,7 +78,7 @@ ul {
 }
 
 .header {
-  background: #007bff;
+  background: #0051ff;
   color: #ffffff;
   padding: 15px 20px;
   text-align: center;
@@ -152,14 +152,14 @@ ul {
   align-items: center;
   justify-self: center;
   text-align: center;
+  background-color: #0051ff;
+  color: #ffffff;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  background: #007bff;
-  color: #fff;
   text-align: center;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   border-top: 5px ridge aqua;

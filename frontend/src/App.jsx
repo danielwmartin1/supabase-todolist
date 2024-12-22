@@ -12,6 +12,18 @@ function App() {
     console.log('Supabase client:', supabase);
 
     fetchTodos();
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        cancelEditing();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   const fetchTodos = async () => {
@@ -54,6 +66,9 @@ function App() {
   };
 
   const startEditing = (todo) => {
+    if (editingTodo !== null && editingTodo !== todo.id) {
+      cancelEditing();
+    }
     setEditingTodo(todo.id);
     setEditingText(todo.title);
   };
