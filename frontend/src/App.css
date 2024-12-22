@@ -68,6 +68,8 @@ li > * {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%; /* Ensure each child takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 ul {
@@ -186,6 +188,7 @@ footer {
 
 input[type="text"] {
   padding: 0.5rem;
+  margin: 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
   text-align: center;
@@ -203,7 +206,9 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, padding 0.25s, font-size 0.25s;
+  width: auto; /* Ensure button width fits its content */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 button:hover {
   border-color: #646cff;
@@ -211,6 +216,7 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+  outline-offset: 2px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -314,4 +320,6 @@ li > * {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%; /* Ensure each child takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
