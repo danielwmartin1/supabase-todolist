@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { supabase } from './supabase';
+import { supabase } from './supabase.js';
 
 function App() {
   const [todos, setTodos] = useState([]);
