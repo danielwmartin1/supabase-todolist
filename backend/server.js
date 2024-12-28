@@ -1,8 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
-const { createClient } = require('@supabase/supabase-js');
-const axios = require('axios');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import { createClient } from '@supabase/supabase-js';
+
+dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -11,7 +12,6 @@ app.use(express.json());
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
-
 app.get('/todos', async (req, res) => {
   try {
     const { data, error } = await supabase
