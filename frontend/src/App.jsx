@@ -7,7 +7,7 @@ function App() {
   const [editingTodo, setEditingTodo] = useState(null);
   const [editingText, setEditingText] = useState('');
   const inputRef = useRef(null);
-  const editInputRef = useRef(null); // Create a new ref for the edit input
+  const editInputRef = useRef(null);
 
   useEffect(() => {
     fetchTodos();
@@ -20,7 +20,6 @@ function App() {
 
     document.addEventListener('keydown', handleKeyDown);
 
-    // Set focus to the input field when the component mounts
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -79,7 +78,7 @@ function App() {
     setEditingText(todo.title);
     setTimeout(() => {
       if (editInputRef.current) {
-        editInputRef.current.focus(); // Focus on the edit input when editing starts
+        editInputRef.current.focus();
       }
     }, 0);
   };
@@ -90,6 +89,11 @@ function App() {
   };
 
   const saveEdit = async (id) => {
+    const todo = todos.find(t => t.id === id);
+    if (todo && todo.title === editingText) {
+      cancelEditing();
+      return;
+    }
     const { error } = await supabase
       .from('todos')
       .update({
@@ -125,7 +129,7 @@ function App() {
           onChange={(e) => setNewTodo(e.target.value)}
           onKeyDown={handleNewTodoKeyDown}
           placeholder="Add a new task"
-          ref={inputRef} // Attach the ref to the input element
+          ref={inputRef}
         />
         <button id="add" onClick={addTodo}>Add</button>
       </div>
@@ -139,7 +143,7 @@ function App() {
                   value={editingText}
                   onChange={(e) => setEditingText(e.target.value)}
                   onKeyDown={(e) => handleEditTodoKeyDown(e, todo.id)}
-                  ref={editInputRef} // Attach the ref to the edit input element
+                  ref={editInputRef}
                 />
                 <button id="save" onClick={() => saveEdit(todo.id)}>Save</button>
                 <button id="cancel" onClick={cancelEditing}>Cancel</button>
