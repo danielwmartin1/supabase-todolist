@@ -176,7 +176,7 @@ function App() {
                   }}>
                   <small>Updated at: {new Date(todo.updated_at).toLocaleDateString()} @ {new Date(todo.updated_at).toLocaleTimeString()}</small>
                 </div>
-                <button id="edit" onClick={() => startEditing(todo)}>Edit</button>
+                {!todo.is_completed && <button id="edit" onClick={() => startEditing(todo)}>Edit</button>}
                 <button id="delete" onClick={() => deleteTodo(todo.id)}>Delete</button>
               </>
             )}
