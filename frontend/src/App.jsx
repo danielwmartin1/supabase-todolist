@@ -154,15 +154,26 @@ function App() {
                   onClick={() => toggleCompletion(todo.id, todo.is_completed)}
                   style={{
                     textDecoration: todo.is_completed ? 'line-through' : 'none',
+                    opacity: todo.is_completed ? 0.5 : 1,
                     cursor: 'pointer'
                   }}
                 >
                   {todo.title}
                 </span>
-                <div>
+                <div
+                    style={{
+                    textDecoration: todo.is_completed ? 'line-through' : 'none',
+                    opacity: todo.is_completed ? 0.5 : 1,
+                    cursor: 'pointer'
+                  }}>
                   <small>Created at: {new Date(todo.created_at).toLocaleDateString()} @ {new Date(todo.created_at).toLocaleTimeString()}</small>
                 </div>
-                <div>
+                <div
+                    style={{
+                    textDecoration: todo.is_completed ? 'line-through' : 'none',
+                    opacity: todo.is_completed ? 0.5 : 1,
+                    cursor: 'pointer'
+                  }}>
                   <small>Updated at: {new Date(todo.updated_at).toLocaleDateString()} @ {new Date(todo.updated_at).toLocaleTimeString()}</small>
                 </div>
                 <button id="edit" onClick={() => startEditing(todo)}>Edit</button>
